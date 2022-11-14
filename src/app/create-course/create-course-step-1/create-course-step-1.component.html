@@ -1,57 +1,53 @@
-
 <div [formGroup]="form">
 
-    <mat-form-field>
+  <mat-form-field>
 
-        <input matInput placeholder="Course title" formControlName="title" #title>
+    <input matInput placeholder="Course title" formControlName="title" #title>
 
-        <mat-hint align="end">
-            {{ title.value.length }} / 60
-        </mat-hint>
+    <mat-hint align="end">
+      {{ title.value.length }} / 60
+    </mat-hint>
 
-        <mat-error *ngIf="courseTitle.errors?.titleExists">
-            This title is already being used.</mat-error>
+    <mat-error *ngIf="courseTitle.errors?.titleExists">
+      This title is already being used.</mat-error>
 
-    </mat-form-field>
+  </mat-form-field>
 
-    <mat-form-field>
+  <mat-form-field>
 
-        <mat-select placeholder="Select category" formControlName="category">
+    <mat-select placeholder="Select category" formControlName="category">
 
-            <ng-container *ngFor="let category of (courseCategories$ | async)">
+      <ng-container *ngFor="let category of (courseCategories$ | async)">
 
-                <mat-option [value]="category.code">{{category.description}}</mat-option>
+        <mat-option [value]="category.code">{{category.description}}</mat-option>
 
-            </ng-container>
+      </ng-container>
 
-        </mat-select>
+    </mat-select>
 
-    </mat-form-field>
+  </mat-form-field>
 
-    <mat-form-field>
+  <mat-form-field>
 
-        <input matInput [matDatepicker]="releaseDatePicker"
-               formControlName="releasedAt"
-               placeholder="Release date">
+    <input matInput [matDatepicker]="releaseDatePicker" formControlName="releasedAt" placeholder="Release date">
 
-        <mat-datepicker-toggle matSuffix
-                [for]="releaseDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker-toggle matSuffix [for]="releaseDatePicker"></mat-datepicker-toggle>
 
-        <mat-datepicker #releaseDatePicker></mat-datepicker>
+    <mat-datepicker #releaseDatePicker></mat-datepicker>
 
-    </mat-form-field>
+  </mat-form-field>
 
-    <mat-checkbox color="primary" formControlName="downloadsAllowed">
-        Downloads allowed?
-    </mat-checkbox>
+  <mat-checkbox color="primary" formControlName="downloadsAllowed">
+    Downloads allowed?
+  </mat-checkbox>
 
-    <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline">
 
-        <textarea matInput placeholder="Description" formControlName="longDescription">
+    <textarea matInput placeholder="Description" formControlName="longDescription">
 
-        </textarea>
+    </textarea>
 
-    </mat-form-field>
+  </mat-form-field>
 
 </div>
 
@@ -60,12 +56,3 @@
     {{form.value | json}}
 
 </div-->
-
-
-
-
-
-
-
-
-
