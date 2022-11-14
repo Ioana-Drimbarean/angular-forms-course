@@ -12,6 +12,7 @@
         [ngModel]="val.email" => 1 way data binding. After changing the input value the val remains the same into the component
         [(ngModel)]="val.email" => 2 way data binding. After changing the input value the val also changes into the component
         [()] - box of bananas :D
+        name="email" - name of the form control
         -->
 
         <mat-error *ngIf="email.errors?.required">The email is mandatory.</mat-error>
